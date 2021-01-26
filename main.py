@@ -1,14 +1,32 @@
-from flask import Flask, render_template
+import random as r #importing module
 
-app = Flask(__name__)
 
-@app.route('/') #to route the code to webpage
+num = r.randrange(100) # to get a range from 1 to 100
 
-def index():
+guess =5
 
-    return render_template("login.html")
-    return render_template("register.html")
-    return render_template("profile.html")
+while guess >= 0:#applying the loop
+    your_guess = int(input("enter your guess"))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+    def check(x):#creating a loop
+        if your_guess ==x:
+            print('you win')
+        elif your_guess > x:
+            print('you are close please keep trying lower')
+
+        else:
+            print('you are close please keep trying higher')
+
+
+    if guess > 1:
+        check(num)
+
+    elif guess == 1:
+        check(num)
+        print('this your last chance, make the most of it')
+
+    else:
+        print("you lost")
+
+        guess = guess-1
